@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine 💖</title>
+
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Poppins", Arial, sans-serif;
+
+      /* Background image */
+      background: url("x.jpeg") no-repeat center center/cover;
+    }
+
+    /* Soft overlay for readability */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 214, 231, 0.6);
+      z-index: -1;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 45px 40px;
+      border-radius: 25px;
+      text-align: center;
+      width: 320px;
+      position: relative;
+
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      animation: pop 0.8s ease;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    h2 {
+      margin-bottom: 30px;
+      color: #ff4d6d;
+      font-size: 22px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 120px;
+    }
+
+    button {
+      padding: 12px 28px;
+      font-size: 16px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    #yes {
+      background: linear-gradient(135deg, #ff4d6d, #ff758f);
+      color: white;
+      box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4);
+    }
+
+    #yes:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 30px rgba(255, 77, 109, 0.6);
+    }
+
+    #no {
+      position: absolute;
+      background: #ddd;
+      color: #555;
+    }
+
+    .hint {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <h2>Tharushi, will you be my Valentine? 💖</h2>
+
+  <div class="buttons">
+    <button id="yes" onclick="yesClicked()">Yes 💘</button>
+    <button id="no">No</button>
+  </div>
+
+  <div class="hint">*No seems a bit shy 😌*</div>
+</div>
+
+<script>
+  const noBtn = document.getElementById("no");
+
+  noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * 220;
+    const y = Math.random() * 80;
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  });
+
+  function yesClicked() {
+    document.body.innerHTML = `
+      <div style="
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction:column;
+        font-family:Poppins, Arial;
+        background:url('x.jpeg') center/cover no-repeat;
+      ">
+        <h1 style="color:white; text-shadow:0 5px 20px black;">
+          YAY 💖💖💖
+        </h1>
+        <h2 style="color:white; text-shadow:0 5px 20px black;">
+          Best decision ever 😌
+        </h2>
+      </div>
+    `;
+  }
+</script>
+
+</body>
+</html>
